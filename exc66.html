@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="exercicios1.css">
+
+</head>
+
+<body>
+
+  <script>
+let valores = [];
+let soma = 0;
+
+function verExtrato() {
+  if (valores === 0) {
+    alert('A lista está vazia');
+    return;
+  };
+  let extrato = 'Valores gastos: \n';
+  valores.forEach(function (item, index) {
+    extrato += index + "º: " + item + "\n";
+  }); 
+
+  alert(extrato)
+}
+
+function AdicionarGasto() {
+  let inputQuantia = parseInt(prompt('Digite a quantia gasta'));
+  if (isNaN(inputQuantia) || inputQuantia === '' || inputQuantia <= 0) {
+    alert('Algo deu errado, tente novamente');
+    return;
+  } else {
+    valores.push(inputQuantia);
+    alert('A quantia de ' + inputQuantia + ' foi adicionada com sucesso!');
+    soma+=inputQuantia;
+  }
+
+}
+
+while (true) {
+  const opção = prompt('O que você deseja?' + "\n" + '1. Adicionar Gasto' + "\n" + '2. Ver extrato' + "\n" + '3. Ver total' + "\n" + '4. Sair');
+  switch (opção) {
+    case ('1'):
+      AdicionarGasto();
+      break;
+    case ('2'):
+      verExtrato();
+      break;
+      case('3'):
+      alert(soma);
+      break;
+    case ('4'):      
+      alert("Saindo do programa.");
+      exit(0);
+    default:
+      alert("Opção inválida.");
+  }
+};
+  </script>
+
+</body>
+
+</html>
